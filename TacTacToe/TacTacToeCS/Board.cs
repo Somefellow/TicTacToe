@@ -5,17 +5,17 @@ namespace TacTacToeCS
 {
     class Board
     {
-        int[] fGrid;
-        bool fTurn;
+        readonly int[] fGrid;
 
         public Board()
         {
             fGrid = new int[9];
         }
 
-        public Board(Board aBoard)
+        public Board(Board aBoard, int aIndex, int aValue)
         {
             fGrid = aBoard.fGrid.Clone() as int[];
+            MakeMove(aIndex, aValue);
         }
 
         public int[] ValidMoves()
@@ -31,6 +31,24 @@ namespace TacTacToeCS
             }
 
             return lResult.ToArray();
+        }
+
+        public bool GameOver()
+        {
+            if (WinningPlayer() != 0)
+            {
+                return true;
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                if (fGrid[i] == 0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public int WinningPlayer()
@@ -90,6 +108,34 @@ namespace TacTacToeCS
             }
 
             fGrid[aIndex] = aValue;
+        }
+
+        public override string ToString()
+        {
+            string result = string.Empty;
+
+            for (int i = 0; i < 9; i++)
+            {
+                switch (fGrid[i])
+                {
+                    case 1:
+                        result += 'X';
+                        break;
+                    case -1:
+                        result += 'O';
+                        break;
+                    default:
+                        result += ' ';
+                        break;
+                }
+
+                if (i == 2 || i == 5)
+                {
+                    result += Environment.NewLine;
+                }
+            }
+
+            return result;
         }
     }
 }

@@ -1,31 +1,55 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TacTacToeCS
 {
     class Match
     {
-        Board fBoard;
+        readonly Board fBoard;
         readonly Player fX;
         readonly Player fO;
+        bool fIsXTurn;
 
-        public Match(Player aPlayer)
+        public Match(Player aPlayer1, Player aPlayer2)
         {
-            Contract.Requires(aPlayer != null);
-
-            fX = aPlayer;
-            fO = new Computer();
+            fX = aPlayer1;
+            fO = aPlayer2;
             fBoard = new Board();
+            fIsXTurn = true;
         }
 
         public void PlayGame()
         {
-            while (fBoard.WinningPlayer() == 0)
+            while (!fBoard.GameOver())
             {
+                Console.WriteLine(fBoard);
+
+                Console.WriteLine("---");
+
+                if (fIsXTurn)
+                {
+                    fBoard.MakeMove(fX.MakeMove(fBoard), 1);
+                    fIsXTurn = false;
+                }
+                else
+                {
+                    fBoard.MakeMove(fO.MakeMove(fBoard), -1);
+                    fIsXTurn = true;
+                }
+
+                Console.WriteLine("---");
+            }
+
+            switch (fBoard.WinningPlayer())
+            {
+                case 1:
+                    Console.WriteLine("X Wins!");
+                    break;
+                case -1:
+                    Console.WriteLine("O Wins!");
+                    break;
+                default:
+                    Console.WriteLine("It was a draw!");
+                    break;
             }
         }
     }

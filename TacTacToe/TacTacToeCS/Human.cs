@@ -8,13 +8,28 @@ namespace TacTacToeCS
 {
     class Human : Player
     {
-        public Human() : base(true)
-        {
-        }
-
         public override int MakeMove(Board aBoard)
         {
-            throw new NotImplementedException();
+            string lInput;
+            int lInt;
+
+            while (true)
+            {
+                lInput = Console.ReadLine();
+
+                if (int.TryParse(lInput, out lInt))
+                {
+                    foreach (int i in aBoard.ValidMoves())
+                    {
+                        if (lInt == i)
+                        {
+                            return lInt;
+                        }
+                    }
+                }
+
+                Console.WriteLine("Invalid move...");
+            }
         }
     }
 }
