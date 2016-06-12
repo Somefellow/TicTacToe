@@ -23,8 +23,6 @@ namespace TacTacToeCS
             {
                 Console.WriteLine(fBoard);
 
-                Console.WriteLine("---");
-
                 if (fIsXTurn)
                 {
                     fBoard.MakeMove(fX.MakeMove(fBoard), 1);
@@ -35,9 +33,9 @@ namespace TacTacToeCS
                     fBoard.MakeMove(fO.MakeMove(fBoard), -1);
                     fIsXTurn = true;
                 }
-
-                Console.WriteLine("---");
             }
+
+            Console.WriteLine(fBoard);
 
             switch (fBoard.WinningPlayer())
             {

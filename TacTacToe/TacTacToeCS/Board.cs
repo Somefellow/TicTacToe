@@ -112,7 +112,7 @@ namespace TacTacToeCS
 
         public override string ToString()
         {
-            string result = string.Empty;
+            string result = "*---*" + Environment.NewLine + '|';
 
             for (int i = 0; i < 9; i++)
             {
@@ -131,9 +131,11 @@ namespace TacTacToeCS
 
                 if (i == 2 || i == 5)
                 {
-                    result += Environment.NewLine;
+                    result += '|' + Environment.NewLine + '|';
                 }
             }
+
+            result += '|' + Environment.NewLine + "*---*" + Environment.NewLine;
 
             return result;
         }

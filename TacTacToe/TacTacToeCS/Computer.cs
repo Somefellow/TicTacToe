@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace TacTacToeCS
+﻿namespace TacTacToeCS
 {
     class Computer : Player
     {
@@ -20,44 +18,27 @@ namespace TacTacToeCS
 
         int Minimax(Board aBoard, bool aMaxPlayer)
         {
-            if (aBoard.GameOver())
-            {
-                return aBoard.WinningPlayer();
-            }
+            if (aBoard.GameOver()) return aBoard.WinningPlayer();
 
             int[] lValidMoves = aBoard.ValidMoves();
             int lBestScore;
+            int lBestMove = new int();
 
-            if (aMaxPlayer)
+            if (aMaxPlayer) lBestScore = int.MinValue;
+            else            lBestScore = int.MaxValue;
+
+            for (int i = 0; i < lValidMoves.Length; i++)
             {
-                lBestScore = int.MinValue;
-                for (int i = 0; i < lValidMoves.Length; i++)
+                int lValue = Minimax(new Board(aBoard, lValidMoves[i], aMaxPlayer ? 1 : -1), !aMaxPlayer);
+
+                if (aMaxPlayer && lValue > lBestScore || !aMaxPlayer && lValue < lBestScore)
                 {
-                    int lValue = Minimax(new Board(aBoard, lValidMoves[i], 1), false);
-
-                    if (lValue > lBestScore)
-                    {
-                        lBestScore = lValue;
-                        fNextMove = lValidMoves[i];
-                    }
-                }
-            }
-            else
-            {
-                lBestScore = int.MaxValue;
-
-                for (int i = 0; i < lValidMoves.Length; i++)
-                {
-                    int lValue = Minimax(new Board(aBoard, lValidMoves[i], 1), true);
-
-                    if (lValue < lBestScore)
-                    {
-                        lBestScore = lValue;
-                        fNextMove = lValidMoves[i];
-                    }
+                    lBestScore = lValue;
+                    lBestMove = lValidMoves[i];
                 }
             }
 
+            fNextMove = lBestMove;
             return lBestScore;
         }
     }
