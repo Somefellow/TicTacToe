@@ -44,3 +44,67 @@ bool Board::GameOver()
 		return true;
 	}
 }
+
+int Board::WinningPlayer()
+{
+	if (Line(1))
+	{
+		return 1;
+	}
+	else if (Line(-1))
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+bool Board::Line(int aValue)
+{
+	if (aValue == 0)
+	{
+		throw std::exception("Why?");
+	}
+
+	if (fGrid.at(4) == aValue) // If Centre matches.
+	{
+		if (fGrid.at(0) == aValue && fGrid.at(8) == aValue || fGrid.at(2) == aValue && fGrid.at(6) == aValue) // Check opposite corners.
+		{
+			return true;
+		}
+	}
+
+	for (int i = 0; i < 9; i += 3) // Horizontal.
+	{
+		if (fGrid.at(i) == aValue && fGrid.at(i + 1) == aValue && fGrid.at(i + 2) == aValue)
+		{
+			return true;
+		}
+	}
+
+	for (int i = 0; i < 3; i++) // Vertical.
+	{
+		if (fGrid.at(i) == aValue && fGrid.at(i + 3) == aValue && fGrid.at(i + 6) == aValue)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+void Board::MakeMove(int aIndex, int aValue)
+{
+	if (fGrid.at(aIndex) != 0)
+	{
+		throw std::exception("Cannot overwrite a value!");
+	}
+
+	fGrid.at(aIndex) = aValue;
+}
+
+void Board::Draw()
+{
+}
