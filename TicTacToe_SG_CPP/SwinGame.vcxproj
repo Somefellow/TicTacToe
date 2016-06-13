@@ -72,6 +72,8 @@ xcopy "$(ProjectDir)Resources" "$(OutDir)Resources" /E /I /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Computer.cpp" />
     <ClCompile Include="Human.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -95,6 +97,8 @@ xcopy "$(ProjectDir)Resources" "$(OutDir)Resources" /E /I /Y</Command>
     <ClCompile Include="lib\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Board.h" />
+    <ClInclude Include="Computer.h" />
     <ClInclude Include="Human.h" />
     <ClInclude Include="lib\Animations.h" />
     <ClInclude Include="lib\Audio.h" />

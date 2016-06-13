@@ -8,7 +8,7 @@ Player::~Player()
 {
 }
 
-Move Player::MakeMove(Board aBoard)
+int Player::MakeMove(Board aBoard)
 {
-	return Move();
+	return 0;
 }
