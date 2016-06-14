@@ -1,11 +1,5 @@
 ﻿namespace TacTacToeCS
 {
-    struct MinMaxValue
-    {
-        int Score;
-        int Move;
-    }
-
     class Computer : Player
     {
         bool fMaxPlayer;

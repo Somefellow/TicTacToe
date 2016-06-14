@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include "SwinGame.h"
+#include "../Board.h"
 
 int main()
 {
 	open_graphics_window("You will not win!", 600, 600);
-	//show_swin_game_splash_screen();
+	Board lBoard;
 
     do
     {
@@ -12,7 +13,7 @@ int main()
 
 		clear_screen(ColorWhite);
 
-		//draw_framerate(0, 0);
+		lBoard.Draw();
 
 		refresh_screen(60);
 	} while (!window_close_requested());

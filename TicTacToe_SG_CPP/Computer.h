@@ -1,11 +1,8 @@
 #pragma once
-#include "Player.h"
-class Computer :
-	public Player
+#include "Board.h"
+class Computer
 {
 public:
-	Computer();
-	~Computer();
-	int MakeMove(Board);
+	static int MakeMove(Board, bool);
 };
 

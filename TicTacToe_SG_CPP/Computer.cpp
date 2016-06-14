@@ -1,14 +1,6 @@
 #include "Computer.h"
 
-Computer::Computer()
-{
-}
-
-Computer::~Computer()
-{
-}
-
-int Computer::MakeMove(Board)
+int Computer::MakeMove(Board aBoard, bool aMaxPlayer)
 {
 	return 0;
 }

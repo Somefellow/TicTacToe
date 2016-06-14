@@ -1,5 +1,9 @@
 #include "Board.h"
 
+Board::Board()
+{
+}
+
 Board::Board(Board& aBoard)
 {
 	fGrid = aBoard.fGrid;
@@ -107,4 +111,19 @@ void Board::MakeMove(int aIndex, int aValue)
 
 void Board::Draw()
 {
+	for (int i = 0; i < 2; i++)
+	{
+		//draw_rectangle(ColorBlack, (float)(i % 3 * 200), (float)(i / 3 * 200), 200, 200);
+		switch (1)
+		//switch (fGrid.at(i))
+		{
+		case -1:
+			draw_circle(ColorBlack, (float)(i % 3 * 200) + 100, (float)(i / 3 * 200) + 100, 100);
+			break;
+		case 1:
+			draw_line(ColorBlack, (float)((i % 3) * 200), (float)((i / 3) * 200), (float)((i % 3) * 200), (float)((i % 3) * 200));
+			//draw_line(ColorBlack, (float)(i % 3 * 200) + 200, (float)(i / 3 * 200), (float)(i % 3 * 200), (float)(i % 3 * 200) + 200);
+			break;
+		}
+	}
 }

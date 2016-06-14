@@ -78,9 +78,6 @@
     <ClCompile Include="lib\UserInterface.cpp">
       <Filter>Source Files\SwinGame</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Human.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -151,9 +148,6 @@
     </ClInclude>
     <ClInclude Include="lib\UserInterface.h">
       <Filter>Header Files\SwinGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Human.h">
       <Filter>Header Files</Filter>

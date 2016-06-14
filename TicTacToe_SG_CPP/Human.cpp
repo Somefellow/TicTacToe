@@ -1,14 +1,6 @@
 #include "Human.h"
 
-Human::Human()
-{
-}
-
-Human::~Human()
-{
-}
-
-int Human::MakeMove(Board)
+int Human::MakeMove(Board aBoard)
 {
 	return 0;
 }
