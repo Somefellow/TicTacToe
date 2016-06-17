@@ -111,18 +111,21 @@ void Board::MakeMove(int aIndex, int aValue)
 
 void Board::Draw()
 {
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 9; i++)
 	{
-		//draw_rectangle(ColorBlack, (float)(i % 3 * 200), (float)(i / 3 * 200), 200, 200);
-		switch (1)
-		//switch (fGrid.at(i))
+		float lX = (float)(i % 3) * 200;
+		float lY = (float)(i / 3) * 200;
+
+		draw_rectangle(ColorBlack, lX, lY, 200, 200);
+
+		switch (fGrid.at(i))
 		{
 		case -1:
-			draw_circle(ColorBlack, (float)(i % 3 * 200) + 100, (float)(i / 3 * 200) + 100, 100);
+			draw_circle(ColorBlack, lX + 100, lY + 100, 100);
 			break;
 		case 1:
-			draw_line(ColorBlack, (float)((i % 3) * 200), (float)((i / 3) * 200), (float)((i % 3) * 200), (float)((i % 3) * 200));
-			//draw_line(ColorBlack, (float)(i % 3 * 200) + 200, (float)(i / 3 * 200), (float)(i % 3 * 200), (float)(i % 3 * 200) + 200);
+			draw_line(ColorBlack, lX, lY, lX + 200, lY + 200);
+			draw_line(ColorBlack, lX + 200, lY, lX, lY + 200);
 			break;
 		}
 	}

@@ -12,8 +12,12 @@ int main()
         process_events();
 
 		clear_screen(ColorWhite);
-
 		lBoard.Draw();
+
+		if (mouse_clicked(mouse_button(LEFT_BUTTON)))
+		{
+
+		}
 
 		refresh_screen(60);
 	} while (!window_close_requested());
