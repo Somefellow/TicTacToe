@@ -2,6 +2,7 @@
 
 Board::Board()
 {
+	fGrid.fill(0);
 }
 
 Board::Board(Board& aBoard)

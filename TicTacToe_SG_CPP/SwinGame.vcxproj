@@ -75,7 +75,9 @@ xcopy "$(ProjectDir)Resources" "$(OutDir)Resources" /E /I /Y</Command>
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Computer.cpp" />
     <ClCompile Include="Human.cpp" />
-    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\main.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)\lib; $(ProjectDir)</AdditionalIncludeDirectories>
+    </ClCompile>
     <ClCompile Include="lib\Animations.cpp" />
     <ClCompile Include="lib\Audio.cpp" />
     <ClCompile Include="lib\Camera.cpp" />
