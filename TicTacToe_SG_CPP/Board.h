@@ -15,5 +15,6 @@ public:
 	bool Line(int);
 	void MakeMove(int, int);
 	void Draw();
+	bool FullBoard();
 };
 

@@ -8,7 +8,7 @@ int main()
 	open_graphics_window("You will not win!", 600, 600);
 	Board CurrentBoard;
 
-    do
+	while (!window_close_requested() && !CurrentBoard.GameOver())
     {
         process_events();
 
@@ -22,6 +22,8 @@ int main()
 			if (lHumanMove != -1)
 			{
 				CurrentBoard.MakeMove(lHumanMove, 1);
+
+				if (CurrentBoard.FullBoard()) break;
 
 				int lComputerMove = Computer::MakeMove(CurrentBoard);
 
@@ -37,7 +39,7 @@ int main()
 		}
 
 		refresh_screen(60);
-	} while (!window_close_requested());
+	}
 
     release_all_resources();
     return 0;

@@ -38,15 +38,7 @@ bool Board::GameOver()
 	}
 	else
 	{
-		for (int i = 0; i < 9; i++)
-		{
-			if (fGrid.at(i) == 0)
-			{
-				return false;
-			}
-		}
-
-		return true;
+		return FullBoard();
 	}
 }
 
@@ -58,7 +50,7 @@ int Board::WinningPlayer()
 	}
 	else if (Line(-1))
 	{
-		return 1;
+		return -1;
 	}
 	else
 	{
@@ -130,4 +122,17 @@ void Board::Draw()
 			break;
 		}
 	}
+}
+
+bool Board::FullBoard()
+{
+	for (int i = 0; i < 9; i++)
+	{
+		if (fGrid.at(i) == 0)
+		{
+			return false;
+		}
+	}
+
+	return true;
 }

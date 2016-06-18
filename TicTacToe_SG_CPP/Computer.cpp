@@ -9,8 +9,8 @@ int Computer::Minimax(Board aBoard, bool aMax)
 
 	int lBestScore;
 
-	if (aMax)	lBestScore = -1;
-	else		lBestScore = 1;
+	if (aMax)	lBestScore = -2;
+	else		lBestScore = 2;
 
 	for (int i = 0; i < 9; i++)
 	{
@@ -21,7 +21,7 @@ int Computer::Minimax(Board aBoard, bool aMax)
 
 			int lValue = Minimax(Copy, !aMax);
 
-			if (aMax && lValue > lBestScore || !aMax && lValue < lBestScore)
+			if ((aMax && lValue > lBestScore) || (!aMax && lValue < lBestScore))
 			{
 				lBestScore = lValue;
 			}
