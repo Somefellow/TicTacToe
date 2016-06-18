@@ -1,7 +1,5 @@
-#include <stdio.h>
-#include "SwinGame.h"
-#include "Human.h"
-#include "Computer.h"
+#include "../Human.h"
+#include "../Computer.h"
 
 int main()
 {
